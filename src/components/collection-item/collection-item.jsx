@@ -5,6 +5,7 @@ import {connect} from "react-redux"
 import {addItem} from "../../redux/cart/cart.actions"
 function CollectionItem({item, addItem}) {
     const { name, price, imageUrl} = item;
+    const addingToCart = () => addItem(item)
     return (
         <div className="collection-item">
             <div className="image" style={{backgroundImage: `url(${imageUrl})`}}/>
@@ -16,7 +17,7 @@ function CollectionItem({item, addItem}) {
             {price}
         </span>
             </div>
-            <CustomButton onClick={() => addItem(item)} inverted>Add to Cart</CustomButton>
+            <CustomButton handleClick={addingToCart} inverted>Add to Cart</CustomButton>
         </div>
     )
 }
